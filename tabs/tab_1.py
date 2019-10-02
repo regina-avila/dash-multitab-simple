@@ -4,7 +4,7 @@ import dash_html_components as html
 from dash.dependencies import Input, Output, State
 
 tab_1_layout = html.Div([
-    html.H1('Page 1'),
+    html.H1('Pick a Burger'),
     html.Div([
         html.Div([
             html.H6('Select one:'),

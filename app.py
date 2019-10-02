@@ -60,6 +60,7 @@ def render_content(tab):
 @app.callback(dash.dependencies.Output('page-1-content', 'children'),
               [dash.dependencies.Input('page-1-dropdown', 'value')])
 def page_1_dropdown(value):
+    #question: is this python2 formatting
     return 'You have selected "{}"'.format(value)
 
 # Tab 2 callback
@@ -72,7 +73,7 @@ def page_2_radios(value):
 @app.callback(Output('page-3-content', 'children'),
               [Input('page-3-slider', 'value')])
 def page_3_slider(value):
-    return f'You have selected "{str(value)}"'
+    return 'Please indicate your hunger level'
 
 
 ############ Deploy
