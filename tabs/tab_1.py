@@ -1,7 +1,7 @@
 import dash
 import dash_core_components as dcc
 import dash_html_components as html
-from dash.dependencies import Input, Output
+from dash.dependencies import Input, Output, State
 
 tab_1_layout = html.Div([
     html.H1('Page 1'),
@@ -10,8 +10,8 @@ tab_1_layout = html.Div([
             html.H6('Select one:'),
             dcc.Dropdown(
                 id='page-1-dropdown',
-                options=[{'label': i, 'value': i} for i in ['burger', 'fries', 'milkshake']],
-                value='burger',
+                options=[{'label': i, 'value': i} for i in ['yogurt', 'cereal', 'donut']],
+                value='yogurt',
                 style = dict(
                             width = '70%',
                             display = 'inline-block',
