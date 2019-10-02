@@ -9,8 +9,8 @@ from tabs import tab_3
 
 ########### Define your variables ######
 
-myheading1 = 'Meal Order Form'
-tabtitle = 'Meal Order Form'
+myheading1 = 'Bobb\'s Burger Order Form'
+tabtitle = 'Burger Order Form'
 sourceurl = 'https://dash.plot.ly/dash-core-components/tabs'
 githublink = 'https://github.com/regina-avila/dash-multitab-simple-ra'
 
@@ -28,9 +28,9 @@ app.layout = html.Div([
     html.H1(myheading1),
     dcc.Tabs(id="tabs-example", value='tab-1-example',
             children=[
-                dcc.Tab(label='Breakfast', value='tab-1-example'),
-                dcc.Tab(label='Lunch', value='tab-2-example'),
-                dcc.Tab(label='Dinner', value='tab-3-example'),
+                dcc.Tab(label='Burger Type', value='tab-1-example'),
+                dcc.Tab(label='Burger Temp', value='tab-2-example'),
+                dcc.Tab(label='R U Hungry', value='tab-3-example'),
     ]),
     html.Div([
         html.Div(id='tabs-content-example'),
