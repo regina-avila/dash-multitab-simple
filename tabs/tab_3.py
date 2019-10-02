@@ -11,10 +11,14 @@ tab_3_layout = html.Div([
             dcc.Slider(
                 id='page-3-slider',
                 min=1,
-                max=5,
-                step=0.1,
-                marks={i:str(i) for i in range(1, 5)},
-                value=5,
+                max=100,
+                step=10,
+                marks=marks={
+        0: {'label': 'Just ate', 'style': {'color': green}},
+        50: {'label': 'I could eat', 'style': {'color': yellow}},
+        100: {'label': 'FEED ME NOW', 'style': {'color': 'red'}}
+    },
+                value=0,
             ),
         ], className='four columns'),
         html.Div([
