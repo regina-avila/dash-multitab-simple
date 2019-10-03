@@ -30,21 +30,20 @@ app.layout = html.Div([
             children=[
                 dcc.Tab(label='Burger Type', value='tab-1-example'),
                 dcc.Tab(label='Burger Temp', value='tab-2-example'),
-                dcc.Tab(label='R U Hungry', value='tab-3-example'),
+                #dcc.Tab(label='R U Hungry', value='tab-3-example'),
     ]),
     html.Div([
         html.Div(id='tabs-content-example'),
     ], className='twelve columns',
-        style={'marginBottom': 50, 'marginTop': 25, 'textAlign': 'center'}),
+        style={'marginBottom': 50, 'marginTop': 25}),
     html.Div([
         html.A('Code on Github', href=githublink),
         html.Br(),
         html.A("Data Source", href=sourceurl),
     ], className='twelve columns',
-        style={'textAlign':'left',
+        style={'textAlign':'right',
                 'fontColor':'#FFFFFF',
-                'backgroundColor':'#D3D3D3'
-                })
+                'backgroundColor':'#D3D3D3',})
 ])
 
 @app.callback(Output('tabs-content-example', 'children'),
@@ -61,21 +60,27 @@ def render_content(tab):
 @app.callback(dash.dependencies.Output('page-1-content', 'children'),
               [dash.dependencies.Input('page-1-dropdown', 'value')])
 def page_1_dropdown(value):
-    #question: is this python2 formatting
-    return 'You have selected "{}"'.format(value)
+    #return 'You have selected "{}"'.format(value)
+    burger_you_chose=f'{value}.jpeg'
+    return html.Img(src=app.get_asset_url(burger_you_chose), style={'width': 'auto', 'height': 'auto'}),
 
 # Tab 2 callback
 @app.callback(Output('page-2-content', 'children'),
               [Input('page-2-radios', 'value')])
 def page_2_radios(value):
-    return 'You have selected "{}"'.format(value)
+    #return 'You have selected "{}"'.format(value)
+    temp_you_chose=f'{value}.jpeg'
+#Display image of burger with temp selected
+    return html.Img(src=app.get_asset_url(temp_you_chose), style={'width': 'auto', 'height': 'auto'}),
 
+'''
 # Tab 3 callback
 @app.callback(Output('page-3-content', 'children'),
               [Input('page-3-slider', 'value')])
 def page_3_slider(value):
-    return 'Please indicate your hunger level'
-
+    #how do i turn these into string??
+    return f'You have selected "{str(value)}"'
+'''
 
 ############ Deploy
 if __name__ == '__main__':
