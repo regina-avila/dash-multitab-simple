@@ -12,7 +12,7 @@ from tabs import tab_3
 myheading1 = 'Bobb\'s Burger Order Form'
 tabtitle = 'Burger Order Form'
 sourceurl = 'https://dash.plot.ly/dash-core-components/tabs'
-githublink = 'https://github.com/regina-avila/dash-multitab-simple-ra'
+githublink = 'https://github.com/regina-avila/dash-multitab-simple'
 
 ########### Initiate the app
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
