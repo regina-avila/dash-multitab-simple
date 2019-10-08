@@ -3,6 +3,8 @@ import dash_core_components as dcc
 import dash_html_components as html
 import plotly.graph_objs as go
 from dash.dependencies import Input, Output
+#importing my own scripts tab_1.py, tab_2.py, tab_3.py
+#could also from tab_1 import function...
 from tabs import tab_1
 from tabs import tab_2
 from tabs import tab_3
@@ -31,6 +33,7 @@ app.layout = html.Div([
                 dcc.Tab(label='Burger Type', value='tab-1-example'),
                 dcc.Tab(label='Burger Temp', value='tab-2-example'),
                 #dcc.Tab(label='R U Hungry', value='tab-3-example'),
+                #each of the dcc.tabs children is dcc.tab (singular, which must be tied into a callback
     ]),
     html.Div([
         html.Div(id='tabs-content-example'),
@@ -43,6 +46,7 @@ app.layout = html.Div([
     ], className='twelve columns',
         style={'textAlign':'right',
                 'fontColor':'#FFFFFF',
+               #this is the style for the footer. must be outside the bracket contents of the div?
                 'backgroundColor':'#D3D3D3',})
 ])
 
@@ -51,6 +55,7 @@ app.layout = html.Div([
 def render_content(tab):
     if tab == 'tab-1-example':
         return tab_1.tab_1_layout
+    #this is defined in the script for the tab
     elif tab == 'tab-2-example':
         return tab_2.tab_2_layout
     elif tab == 'tab-3-example':
@@ -58,6 +63,7 @@ def render_content(tab):
 
 # Tab 1 callback
 @app.callback(dash.dependencies.Output('page-1-content', 'children'),
+              #page-1-content is the second callback, that exists in the tab_1.py the callback lives here in app.py
               [dash.dependencies.Input('page-1-dropdown', 'value')])
 def page_1_dropdown(value):
     #return 'You have selected "{}"'.format(value)
@@ -84,4 +90,8 @@ def page_3_slider(value):
 
 ############ Deploy
 if __name__ == '__main__':
+#the above is there to specify - only run the server if the main of this script is== the system variable main
+#will prevent wrong one from fire accidentally when being imported (like 'secondary')
     app.run_server(debug=True)
+    
+
